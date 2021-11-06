@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize'); //Import the sequelize package and create an instance of sequelize for use in the module with the "Sequelize" variable.
 
-const sequelize = new Sequelize("postgres://postgres:c188645ec8f3419abf51129081469837@localhost:5432/eleven-journal"); //Use the constructor to create a new sequelize object. The constructor takes in a string which holds all of the pertinet data required to connect to a database, also known as a URI connection.
+const sequelize = new Sequelize("postgres://postgres:16e178946be14ab9abd46a256ad6b0ce@localhost:5432/eleven-journal"); //Use the constructor to create a new sequelize object. The constructor takes in a string which holds all of the pertinet data required to connect to a database, also known as a URI connection.
 /*
 Anaylize string:
     'postgress://user:pass@example.com:5432/dbname'

@@ -8,7 +8,16 @@ app.use(Express.json());
 
 app.use("/journal", controllers.journalController);
 app.use("/user", controllers.userController); //We call upon the use() method from the Express framework and create a route to access any future functions in our usercontroller.js. The string, '/user', is setting up the endpoint our URL will need to include to access a controller. We use dot notation to step into the bundle of controllers we imported on line 5 to grab the value from the userController key in the controllers/index.js file.
+//app.use(require("./middleware/validate-jwt"));
+/*
+Line 12: We imported the validateJWT middleware, which will check to see if the incoming request has a token. Anything beneath the validateJWT will require a token to access, thus becoming protected. Anything above it will not require a token, remaining unprotected. Therefore, the user routes is not protected, while the journal route is protected.
 
+With this set-up, the userController route is exposed while the journalController route is protected.
+
+This option is best when you have a controller or multiple controllers where all of the routes need to be restricted. 
+
+But if we look back at out functionality checklist, we notice that there are a few routes in the journalcontroller we will want exposed to all users. So this isn't the right option for us.
+*/
 
 dbConnection.authenticate() // We use the db variable to access the sequelize instance and its methods from the db file and it calls upon the authenticate() method. This is an asynchronous method that runs a "SELECT 1+1 AS result" query. This method returns a promise
     .then(() => dbConnection.sync()) // We use a promise resolver to access the returned promise and call upon the sync() method. This method will ensure that we sync all defined models to the database. 
