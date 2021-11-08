@@ -3,7 +3,7 @@ const Express = require("express"); //Line one: requiring the use of the "expres
 const app = Express(); //Create an instance of "express". This is actually firing off top level "Express()" function, which was exported by the Express module. This allows the ability to create an Express app.
 const dbConnection = require("./db"); //creates a db variable that imports the db file
 const controllers = require("./controllers");//We import the controllers as a bundle through the object that we just exported in the index.js and store it in a variable called controllers. 
-
+app.use(require('./middleware/headers'));
 app.use(Express.json());
 
 app.use("/journal", controllers.journalController);
